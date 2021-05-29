@@ -1,0 +1,172 @@
+doctype html
+html
+    head
+        //metadata
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='aStore Online')
+        meta(name='author', content='aStore. All rights Reserved')
+        //title
+        title= title + ' | DBMS'
+        //stylesheet
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/css/main.css')
+        link(rel='stylesheet', href='/css/responsive.css')
+        //favicon
+        link(rel='shortcut icon', href='https://vitap.ac.in/wp-content/uploads/2020/07/cropped-logo_icon-1-192x192.png')
+    body
+        //header
+        header#header
+            //header_top
+            .header_top
+                .container
+                    .row
+                        .col-sm-6
+                            .contactinfo
+                                ul.nav.nav-pills
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-phone
+                                            |  +91 91919 191919
+                                    li
+                                        a(href='mailto:harshith.19bcn7112@vitap.ac.in')
+                                            i.fa.fa-envelope
+                                            |  harshith.19bcn7112@vitap.ac.in
+                        .col-sm-6
+                            .shop-menu.pull-right
+                                ul.nav.navbar-nav
+                                    -var orderCus = 'Account'
+                                    -var link = '/sign-in'
+                                    if customer
+                                        -orderCus=customer.FullName
+                                        -link='/usr/'
+                                    li
+                                        a(href=link)
+                                            i.fa.fa-user
+                                            =orderCus
+                                    li
+                                        a(href='/cart')
+                                            i.fa.fa-shopping-cart
+                                            |  Cart
+                                    if customer
+                                        li
+                                            a(href='/sign-out')
+                                                i.fa.fa-sign-out
+                                                |  Logout
+            ///header_top
+
+            //header-bottom
+            .header-bottom
+                .container
+                    .row
+                        .col-sm-4
+                            .logo.pull-left
+                                a(href='/')
+                                    img(src='/img/logo1.png', alt='VIT-AP Logo')
+                        .col-sm-8
+                    .row
+                        .col-sm-9
+                            .navbar-header
+                                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                    span.sr-only Toggle navigation
+                                    span.icon-bar
+                                    span.icon-bar
+                                    span.icon-bar
+                            .mainmenu.pull-left
+                                ul.nav.navbar-nav.collapse.navbar-collapse
+                                    li
+                                        a(class={active: currentUrl === '/'}, href='/')
+                                            | Home
+                                    li
+                                        a(class={active: currentUrl === '/cat/all'}, href='/cat/all')
+                                            | Categories
+                                    li
+                                        a(class={active: currentUrl === '/contact-us'}, href='/contact-us') 
+                                            | Support                    
+            ///header-bottom
+        ///header
+
+        block content
+
+        //Footer
+        footer#footer
+            .footer-widget
+                .container
+                    .row
+                        .col-sm-2
+                            .companyinfo
+                                h2
+                                    span VIT-
+                                    | AP
+                                p
+                                    | This is the un-official store of the
+                                    | VIT-AP University. To help with all 
+                                    | the student needs facing difficulties.
+                        .col-sm-2
+                            .single-widget
+                                h2 Media
+                                ul.nav.nav-pills.nav-stacked
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-facebook
+                                            | Facebook
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-twitter
+                                            | Twitter
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-instagram
+                                            | Instagram
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-youtube
+                                            | Youtube
+                        .col-sm-2
+                            .single-widget
+                                h2 Press
+                                ul.nav.nav-pills.nav-stacked
+                                    li
+                                        a(href='') Careers
+                                    li
+                                        a(href='') Partners
+                                    li
+                                        a(href='') Privacy Terms
+                                    li
+                                        a(href='') About us
+                        .col-sm-2
+                            .single-widget
+                                h2 Services
+                                ul.nav.nav-pills.nav-stacked
+                                    li
+                                        a(href='') Shipment
+                                    li
+                                        a(href='') Return Policy
+                                    li
+                                        a(href='') Payment
+                                    li
+                                        a(href='') Voucher
+                        .col-sm-3.col-sm-offset-1
+                            .single-widget
+                                h2 NewsLetter
+                                form.searchform(action='/subscribe', method='POST')
+                                    input(type='text', name='email', placeholder='Your email address')
+                                    button.btn.btn-default(type='submit')
+                                        i.fa.fa-arrow-circle-o-right
+                                    p
+                                        | Get updates Straight to your mailbox about
+                                        | your university shopping website sales 
+                                        | and new arrivals...
+            .footer-bottom
+                .container
+                    .row
+                        p.pull-left &copy 2021 . All rights reserved.
+                        p.pull-right= 'Designed by '
+                            span
+                                a(target='_blank', href='https://www.linkedin.com/in/tharshith/') Tharshith Goud
+        ///Footer
+        script(src='/js/jquery-2.1.4.min.js')
+        script(src='/js/bootstrap.min.js')
+        script(src='/js/jquery.scrollUp.min.js')
+        script(src='/js/main.js')

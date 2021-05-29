@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    section
+        .container
+            .row                
+                if product 
+                    .product-details
+                        .col-sm-5
+                            .view-product
+                                img(src='/img/products/' + product.Image, alt=product.ProductName)
+                        
+                        .col-sm-7
+                            .product-information
+                                h2= product.ProductName
+
+                                p= product.ProductDescription
+
+                                - var availability = 'In Stock'
+                                if product.UnitsInStock < 1
+                                    - availability = 'Out of order'
+
+                                p
+                                    b Availability:
+                                    = ' ' + availability
+                                p
+                                    b Manufacturing year:
+                                    = ' ' + product.ManufactureYear
+                                p
+                                    b Brand:
+                                    |  VIT-AP
+                                span
+                                    span= '₹ ' + product.ProductPrice
+                                    form(action='/cart/' + product.ProductID + '/add', method='POST')
+                                        label Quantity:
+                                            input(type='text', name='quantity', value='1')
+                                        br
+                                        button.btn.btn-default.add-to-cart(type='submit')
+                                            i.fa.fa-shopping-cart
+                                            | Add to cart
+
+                                a(href='')
+                                    img.share.img-responsive(src='images/product-details/share.png', alt='')
+                        
