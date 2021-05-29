@@ -3,7 +3,7 @@
 Deployement - https://dbmsvitap.herokuapp.com/
 
 
-To Run this:
+To Run this project locally on your machine:
 
 1. clone this repository to your local machine
 2. open terminal in the project directory
